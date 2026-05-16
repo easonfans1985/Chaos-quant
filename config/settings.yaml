@@ -1,0 +1,66 @@
+# Chaos Quant 项目配置
+
+# 数据存储路径
+data:
+  base_dir: "./data"
+  market:
+    daily: "market/daily"
+    minute_5: "market/minute_5"
+    minute_15: "market/minute_15"
+    minute_30: "market/minute_30"
+    minute_60: "market/minute_60"
+  fundamental:
+    financial_report: "fundamental/financial_report"
+    financial_indicator: "fundamental/financial_indicator"
+    dividend: "fundamental/dividend"
+  valuation: "valuation"
+  reference:
+    industry: "reference/industry"
+    sector: "reference/sector"
+    index_components: "reference/index_components"
+    trade_calendar: "reference/trade_calendar"
+  money_flow:
+    northbound: "money_flow/northbound"
+    capital_flow: "money_flow/capital_flow"
+    margin_trading: "money_flow/margin_trading"
+    dragon_tiger: "money_flow/dragon_tiger"
+  other:
+    shareholder: "other/shareholder"
+    lockup: "other/lockup"
+    macro: "other/macro"
+
+# 下载配置
+download:
+  # 历史数据范围
+  start_date: "2021-01-01"
+  end_date: "2026-05-16"
+  # 股票范围：all / hs300 / zz500 / etf / index
+  scope: "etf_index_hs300"
+  # 并发数
+  workers: 3
+  # 重试
+  retry_count: 3
+  retry_delay: 5  # 秒
+  # 请求间隔（秒），避免被封
+  request_interval: 0.1
+
+# Baostock 配置
+baostock:
+  # 分钟线类型：5 / 15 / 30 / 60
+  minute_types: [5]
+  # 是否下载指数
+  include_indices: true
+  # 是否下载复权因子
+  include_adjust_factor: true
+  # 是否下载停牌股票
+  include_suspended: false
+
+# AkShare 配置
+akshare:
+  # 请求间隔（秒），避免被目标网站封IP
+  request_interval: 0.5
+
+# 存储配置
+storage:
+  format: "parquet"
+  compression: "gzip"
