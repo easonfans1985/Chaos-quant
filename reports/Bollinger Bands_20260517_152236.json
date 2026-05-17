@@ -1,0 +1,30 @@
+{
+  "strategy_name": "Bollinger Bands",
+  "config": {
+    "codes": [
+      "sh.600036",
+      "sh.600519"
+    ],
+    "freq": "daily",
+    "start_date": "2021-01-01",
+    "end_date": "2026-05-15",
+    "init_cash": 1000000,
+    "fees": 0.001,
+    "slippage": 0.001,
+    "size_type": "amount",
+    "size": 100,
+    "stamp_fees": 0.001
+  },
+  "metrics": {
+    "total_return": "-0.03%",
+    "annualized_return": "-0.01%",
+    "max_drawdown": "-0.18%",
+    "sharpe_ratio": -7833.206,
+    "sortino_ratio": 0.0,
+    "calmar_ratio": -0.041,
+    "win_rate": "57.14%",
+    "total_trades": 28,
+    "avg_trade_return": "-0.52%",
+    "profit_factor": 0.717
+  }
+}

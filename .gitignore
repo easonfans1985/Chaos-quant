@@ -24,6 +24,10 @@ logs/
 .DS_Store
 Thumbs.db
 
+# 回测报告（本地生成，不上传）
+reports/*.html
+reports/*.csv
+
 # IDE
 .idea/
 .vscode/
