@@ -244,6 +244,9 @@ class BaoStockDownloader:
             if df.empty:
                 return None
             last_date = df.index.max()
+            # 处理索引类型不一致（Qlib迁移数据可能是int索引）
+            if not isinstance(last_date, pd.Timestamp):
+                return None
             return last_date.strftime("%Y-%m-%d")
         except Exception:
             return None
@@ -254,6 +257,10 @@ class BaoStockDownloader:
 
         if filepath.exists():
             existing = pd.read_parquet(filepath)
+            # 如果已有数据索引不是 datetime（如 Qlib 迁移的 int 索引），全量覆盖
+            if not isinstance(existing.index, pd.DatetimeIndex):
+                df.to_parquet(filepath, compression="gzip")
+                return
             # 合并，去重（按索引）
             combined = pd.concat([existing, df])
             combined = combined[~combined.index.duplicated(keep="last")]
