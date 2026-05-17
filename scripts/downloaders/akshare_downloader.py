@@ -140,19 +140,41 @@ class AkShareDownloader:
         """
         下载全市场估值数据（PE/PB/市值）
 
+        通过上证指数和深证成指的PE/PB来代表市场整体估值水平。
+        若需个股估值，可使用 stock_zh_valuation_baidu 单独下载。
+
         Args:
             trade_date: 交易日期 YYYYMMDD，默认最新
         """
         import akshare as ak
-        logger.info("下载估值数据...")
+        logger.info("下载估值数据（指数PE/PB）...")
 
         try:
-            # 全市场 A 股估值（东方财富源）
-            df = ak.stock_a_indicator_lg(symbol="all")
-            if df is not None and not df.empty:
-                self._save(df, self.config["data"]["valuation"], "a_stock_valuation.parquet")
+            # 上证50 PE
+            df_sh = ak.stock_index_pe_lg(symbol="上证50")
+            if df_sh is not None and not df_sh.empty:
+                self._save(df_sh, self.config["data"]["valuation"], "index_pe_sh.parquet")
+                logger.info(f"上证指数PE: {len(df_sh)} 行")
         except Exception as e:
-            logger.error(f"估值数据下载失败: {e}")
+            logger.warning(f"上证指数PE下载失败: {e}")
+
+        try:
+            # 沪深300 PE
+            df_hs300 = ak.stock_index_pe_lg(symbol="沪深300")
+            if df_hs300 is not None and not df_hs300.empty:
+                self._save(df_hs300, self.config["data"]["valuation"], "index_pe_hs300.parquet")
+                logger.info(f"沪深300PE: {len(df_hs300)} 行")
+        except Exception as e:
+            logger.warning(f"沪深300PE下载失败: {e}")
+
+        try:
+            # 创业板50 PE
+            df_cy = ak.stock_index_pe_lg(symbol="创业板50")
+            if df_cy is not None and not df_cy.empty:
+                self._save(df_cy, self.config["data"]["valuation"], "index_pe_cybz.parquet")
+                logger.info(f"创业板指PE: {len(df_cy)} 行")
+        except Exception as e:
+            logger.warning(f"创业板指PE下载失败: {e}")
 
     # ========== 北向资金 ==========
 
@@ -162,18 +184,24 @@ class AkShareDownloader:
         logger.info("下载北向资金...")
 
         try:
-            # 沪股通+深股通净买入
-            df = ak.stock_hsgt_north_net_flow_in_em(symbol="沪股通")
+            # 沪股通历史资金流向
+            df = ak.stock_hsgt_hist_em(symbol="沪股通")
             if df is not None and not df.empty:
                 self._save(df, self.config["data"]["money_flow"]["northbound"], "sh_northbound.parquet")
+                logger.info(f"沪股通: {len(df)} 行")
+        except Exception as e:
+            logger.error(f"沪股通数据下载失败: {e}")
 
-            time.sleep(self.request_interval)
+        time.sleep(self.request_interval)
 
-            df2 = ak.stock_hsgt_north_net_flow_in_em(symbol="深股通")
+        try:
+            # 深股通历史资金流向
+            df2 = ak.stock_hsgt_hist_em(symbol="深股通")
             if df2 is not None and not df2.empty:
                 self._save(df2, self.config["data"]["money_flow"]["northbound"], "sz_northbound.parquet")
+                logger.info(f"深股通: {len(df2)} 行")
         except Exception as e:
-            logger.error(f"北向资金下载失败: {e}")
+            logger.error(f"深股通数据下载失败: {e}")
 
     # ========== 资金流向 ==========
 
@@ -196,16 +224,32 @@ class AkShareDownloader:
     # ========== 融资融券 ==========
 
     def download_margin_trading(self):
-        """下载融资融券数据"""
+        """下载融资融券数据（上交所汇总）"""
         import akshare as ak
         logger.info("下载融资融券数据...")
 
         try:
-            df = ak.stock_margin_underlying_info_sz_sh(date=datetime.now().strftime("%Y%m%d"))
+            # 上交所融资融券汇总
+            df = ak.stock_margin_sse(
+                start_date="20210101",
+                end_date=datetime.now().strftime("%Y%m%d")
+            )
             if df is not None and not df.empty:
-                self._save(df, self.config["data"]["money_flow"]["margin_trading"], "margin_data.parquet")
+                self._save(df, self.config["data"]["money_flow"]["margin_trading"], "margin_sse.parquet")
+                logger.info(f"上交所融资融券: {len(df)} 行")
         except Exception as e:
             logger.error(f"融资融券下载失败: {e}")
+
+        time.sleep(self.request_interval)
+
+        try:
+            # 深交所融资融券（单日数据）
+            df2 = ak.stock_margin_szse(date=datetime.now().strftime("%Y%m%d"))
+            if df2 is not None and not df2.empty:
+                self._save(df2, self.config["data"]["money_flow"]["margin_trading"], "margin_szse.parquet")
+                logger.info(f"深交所融资融券: {len(df2)} 行")
+        except Exception as e:
+            logger.error(f"深交所融资融券下载失败: {e}")
 
     # ========== 龙虎榜 ==========
 
