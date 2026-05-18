@@ -7,5 +7,7 @@ from .bollinger_strategy import BollingerStrategy
 from .macd_divergence import MACDDivergenceStrategy
 from .kdj_strategy import KDJStrategy
 from .atr_breakout import ATRBreakoutStrategy
+from .sector_rotation import SectorRotationStrategy
+from .northbound_follow import NorthboundFollowStrategy
 
-__all__ = ["SMACrossStrategy", "RSIStrategy", "BollingerStrategy", "MACDDivergenceStrategy", "KDJStrategy", "ATRBreakoutStrategy"]
+__all__ = ["SMACrossStrategy", "RSIStrategy", "BollingerStrategy", "MACDDivergenceStrategy", "KDJStrategy", "ATRBreakoutStrategy", "FundFlowInflowStrategy", "NorthboundFollowStrategy", "SectorRotationStrategy"]

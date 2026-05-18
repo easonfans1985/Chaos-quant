@@ -19,7 +19,7 @@ sys.path.insert(0, str(project_root))
 
 from backtest.engine import BacktestEngine, BacktestConfig
 from backtest.report import ReportGenerator
-from strategies import SMACrossStrategy, RSIStrategy, BollingerStrategy, MACDDivergenceStrategy, KDJStrategy, ATRBreakoutStrategy
+from strategies import SMACrossStrategy, RSIStrategy, BollingerStrategy, MACDDivergenceStrategy, KDJStrategy, ATRBreakoutStrategy, FundFlowInflowStrategy, NorthboundFollowStrategy, SectorRotationStrategy
 
 
 # 沪深300代表性成分股（用于快速回测）
@@ -43,6 +43,9 @@ STRATEGIES = {
     "macd": MACDDivergenceStrategy,
     "kdj": KDJStrategy,
     "atr": ATRBreakoutStrategy,
+    "fund_flow": FundFlowInflowStrategy,
+    "northbound": NorthboundFollowStrategy,
+    "sector": SectorRotationStrategy,
 }
 
 
