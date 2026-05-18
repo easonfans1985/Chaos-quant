@@ -47,7 +47,11 @@ def download_dividend():
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # 获取全市场股票列表
-    stocks = bs.query_stock_list(fields="code,code_name").get_data()
+    _rs = bs.query_stock_basic()
+    _data = []
+    while _rs.error_code == "0" and _rs.next():
+        _data.append(_rs.get_row_data())
+    stocks = pd.DataFrame(_data, columns=_rs.fields)
     stocks = stocks[stocks["code"].str.startswith(("sh.6", "sz.0", "sz.3"))]
     codes = stocks["code"].tolist()
     logger.info(f"  共 {len(codes)} 只股票")
@@ -111,9 +115,13 @@ def download_financial_indicator():
     output_dir = data_base / "fundamental" / "financial_indicator"
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    stocks = bs.query_stock_list(fields="code,code_name").get_data()
-    stocks = stocks[stocks["code"].str.startswith(("sh.6", "sz.0", "sz.3"))]
-    codes = stocks["code"].tolist()
+    stocks = bs.query_stock_basic()
+    data = []
+    while stocks.error_code == "0" and stocks.next():
+        data.append(stocks.get_row_data())
+    stocks_df = pd.DataFrame(data, columns=stocks.fields)
+    stocks_df = stocks_df[stocks_df["code"].str.startswith(("sh.6", "sz.0", "sz.3"))]
+    codes = stocks_df["code"].tolist()
     logger.info(f"  共 {len(codes)} 只股票")
 
     # 盈利能力
