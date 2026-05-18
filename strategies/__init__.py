@@ -9,5 +9,8 @@ from .kdj_strategy import KDJStrategy
 from .atr_breakout import ATRBreakoutStrategy
 from .sector_rotation import SectorRotationStrategy
 from .northbound_follow import NorthboundFollowStrategy
+from .pair_trading import PairTradingStrategy
+from .momentum_factor import MomentumFactorStrategy
+from .multi_factor import MultiFactorStrategy
 
-__all__ = ["SMACrossStrategy", "RSIStrategy", "BollingerStrategy", "MACDDivergenceStrategy", "KDJStrategy", "ATRBreakoutStrategy", "FundFlowInflowStrategy", "NorthboundFollowStrategy", "SectorRotationStrategy"]
+__all__ = ["SMACrossStrategy", "RSIStrategy", "BollingerStrategy", "MACDDivergenceStrategy", "KDJStrategy", "ATRBreakoutStrategy", "FundFlowInflowStrategy", "NorthboundFollowStrategy", "SectorRotationStrategy", "PairTradingStrategy", "MomentumFactorStrategy", "MultiFactorStrategy"]
