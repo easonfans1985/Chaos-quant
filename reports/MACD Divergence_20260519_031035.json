@@ -1,0 +1,30 @@
+{
+  "strategy_name": "MACD Divergence",
+  "config": {
+    "codes": [
+      "sh.600036",
+      "sh.600519"
+    ],
+    "freq": "daily",
+    "start_date": "2023-01-01",
+    "end_date": "2026-05-18",
+    "init_cash": 1000000,
+    "fees": 0.001,
+    "slippage": 0.001,
+    "size_type": "amount",
+    "size": 100,
+    "stamp_fees": 0.001
+  },
+  "metrics": {
+    "total_return": "0.02%",
+    "annualized_return": "0.01%",
+    "max_drawdown": "-0.10%",
+    "sharpe_ratio": -9540.154,
+    "sortino_ratio": 0.0,
+    "calmar_ratio": 0.092,
+    "win_rate": "39.74%",
+    "total_trades": 78,
+    "avg_trade_return": "0.28%",
+    "profit_factor": 1.079
+  }
+}

@@ -115,15 +115,46 @@ class BacktestEngine:
             end_date=config.end_date,
         )
 
-        # 2. 生成信号
+        # 2. 清理数据：填充 NaN，确保价格 > 0
+        for col in data:
+            data[col] = data[col].ffill().bfill().fillna(0)
+        # 将 0 价格替换为 NaN 再 forward fill（避免 0 价格交易）
+        close = data["close"].replace(0, float('nan')).ffill()
+        data["close"] = close
+
+        # 3. 生成信号
         logger.info("📊 生成交易信号...")
         entries, exits = strategy.generate_signals(data)
 
-        # 3. 构建 Portfolio
+        # 确保信号是布尔值且无 NaN
+        entries = entries.fillna(False).astype(bool)
+        exits = exits.fillna(False).astype(bool)
+
+        # 4. 构建 Portfolio（每只 5% 仓位，最多 20 只同时持仓）
         logger.info("⚙️ 构建投资组合...")
+
+        # 限制每天最多 20 只持仓：如果买入信号 > 20，只保留当天 close 涨幅最大的 20 个
+        MAX_HOLDINGS = 20
+        entries_limited = entries.copy()
+        for date_idx in range(entries.shape[0]):
+            row = entries.iloc[date_idx]
+            if row.sum() > MAX_HOLDINGS:
+                # 按当天涨幅排序，只保留前 MAX_HOLDINGS 个
+                close_row = data["close"].iloc[date_idx]
+                if date_idx > 0:
+                    pct_change = (close_row - data["close"].iloc[date_idx - 1]) / data["close"].iloc[date_idx - 1]
+                    pct_change = pct_change.fillna(0)
+                else:
+                    pct_change = close_row
+                buy_cols = row[row].index
+                sorted_cols = pct_change[buy_cols].sort_values(ascending=False).index[:MAX_HOLDINGS]
+                mask = pd.Series(False, index=entries.columns)
+                mask[sorted_cols] = True
+                entries_limited.iloc[date_idx] = row & mask
+
         portfolio = vbt.Portfolio.from_signals(
             close=data["close"],
-            entries=entries,
+            entries=entries_limited,
             exits=exits,
             init_cash=config.init_cash,
             fees=config.fees,
@@ -131,6 +162,10 @@ class BacktestEngine:
             size=config.size,
             size_type=config.size_type,
             freq="1D" if config.freq == "daily" else f"{config.freq.replace('minute_', '')}min",
+            accumulate=False,
+            cash_sharing=True,
+            group_by=True,
+            call_seq="auto",
         )
 
         # 4. 计算指标

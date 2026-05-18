@@ -55,6 +55,9 @@ STRATEGIES = {
     "val_timing": MarketValuationStrategy,
     "nb_timing": NorthboundTimingStrategy,
     "margin_timing": MarginTimingStrategy,
+    "big_deal": BigDealTrackStrategy,
+    "lockup": LockupAvoidStrategy,
+    "etf": ETFPremiumStrategy,
 }
 
 

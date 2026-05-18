@@ -1,0 +1,364 @@
+{
+  "timestamp": "2026-05-19T06:21:50.451197",
+  "total_strategies": 24,
+  "successful": 11,
+  "failed": 13,
+  "results": {
+    "SMA Cross": {
+      "strategy_name": "SMA Cross",
+      "config": {
+        "codes": [
+          "sh.600036",
+          "sh.600519",
+          "sh.600000"
+        ],
+        "freq": "daily",
+        "start_date": "2021-01-01",
+        "end_date": "2026-05-15",
+        "init_cash": 1000000,
+        "fees": 0.001,
+        "slippage": 0.001,
+        "size_type": "percent",
+        "size": 0.33,
+        "stamp_fees": 0.001
+      },
+      "metrics": {
+        "total_return": "-9.54%",
+        "annualized_return": "-2.78%",
+        "max_drawdown": "-14.84%",
+        "sharpe_ratio": -99.843,
+        "sortino_ratio": 0.0,
+        "calmar_ratio": -0.188,
+        "win_rate": "27.27%",
+        "total_trades": 77,
+        "avg_trade_return": "-1.22%",
+        "profit_factor": 0.573
+      }
+    },
+    "RSI": {
+      "strategy_name": "RSI",
+      "config": {
+        "codes": [
+          "sh.600036",
+          "sh.600519",
+          "sh.600000"
+        ],
+        "freq": "daily",
+        "start_date": "2021-01-01",
+        "end_date": "2026-05-15",
+        "init_cash": 1000000,
+        "fees": 0.001,
+        "slippage": 0.001,
+        "size_type": "percent",
+        "size": 0.33,
+        "stamp_fees": 0.001
+      },
+      "metrics": {
+        "total_return": "-6.50%",
+        "annualized_return": "-1.87%",
+        "max_drawdown": "-16.56%",
+        "sharpe_ratio": -97.497,
+        "sortino_ratio": 0.0,
+        "calmar_ratio": -0.113,
+        "win_rate": "56.25%",
+        "total_trades": 48,
+        "avg_trade_return": "0.18%",
+        "profit_factor": 1.027
+      }
+    },
+    "Bollinger Bands": {
+      "strategy_name": "Bollinger Bands",
+      "config": {
+        "codes": [
+          "sh.600036",
+          "sh.600519",
+          "sh.600000"
+        ],
+        "freq": "daily",
+        "start_date": "2021-01-01",
+        "end_date": "2026-05-15",
+        "init_cash": 1000000,
+        "fees": 0.001,
+        "slippage": 0.001,
+        "size_type": "percent",
+        "size": 0.33,
+        "stamp_fees": 0.001
+      },
+      "metrics": {
+        "total_return": "-2.37%",
+        "annualized_return": "-0.67%",
+        "max_drawdown": "-13.71%",
+        "sharpe_ratio": -100.838,
+        "sortino_ratio": 0.0,
+        "calmar_ratio": -0.049,
+        "win_rate": "55.00%",
+        "total_trades": 40,
+        "avg_trade_return": "-0.61%",
+        "profit_factor": 0.788
+      }
+    },
+    "MACD Divergence": {
+      "strategy_name": "MACD Divergence",
+      "config": {
+        "codes": [
+          "sh.600036",
+          "sh.600519",
+          "sh.600000"
+        ],
+        "freq": "daily",
+        "start_date": "2021-01-01",
+        "end_date": "2026-05-15",
+        "init_cash": 1000000,
+        "fees": 0.001,
+        "slippage": 0.001,
+        "size_type": "percent",
+        "size": 0.33,
+        "stamp_fees": 0.001
+      },
+      "metrics": {
+        "total_return": "14.99%",
+        "annualized_return": "4.01%",
+        "max_drawdown": "-7.16%",
+        "sharpe_ratio": -89.865,
+        "sortino_ratio": 0.0,
+        "calmar_ratio": 0.56,
+        "win_rate": "43.14%",
+        "total_trades": 153,
+        "avg_trade_return": "0.32%",
+        "profit_factor": 1.173
+      }
+    },
+    "KDJ": {
+      "strategy_name": "KDJ",
+      "config": {
+        "codes": [
+          "sh.600036",
+          "sh.600519",
+          "sh.600000"
+        ],
+        "freq": "daily",
+        "start_date": "2021-01-01",
+        "end_date": "2026-05-15",
+        "init_cash": 1000000,
+        "fees": 0.001,
+        "slippage": 0.001,
+        "size_type": "percent",
+        "size": 0.33,
+        "stamp_fees": 0.001
+      },
+      "metrics": {
+        "total_return": "0.59%",
+        "annualized_return": "0.17%",
+        "max_drawdown": "-12.42%",
+        "sharpe_ratio": -104.504,
+        "sortino_ratio": 0.0,
+        "calmar_ratio": 0.013,
+        "win_rate": "13.33%",
+        "total_trades": 15,
+        "avg_trade_return": "-4.66%",
+        "profit_factor": 0.444
+      }
+    },
+    "ATR Breakout": {
+      "strategy_name": "ATR Breakout",
+      "config": {
+        "codes": [
+          "sh.600036",
+          "sh.600519",
+          "sh.600000"
+        ],
+        "freq": "daily",
+        "start_date": "2021-01-01",
+        "end_date": "2026-05-15",
+        "init_cash": 1000000,
+        "fees": 0.001,
+        "slippage": 0.001,
+        "size_type": "percent",
+        "size": 0.33,
+        "stamp_fees": 0.001
+      },
+      "metrics": {
+        "total_return": "-13.68%",
+        "annualized_return": "-4.06%",
+        "max_drawdown": "-16.66%",
+        "sharpe_ratio": -104.849,
+        "sortino_ratio": 0.0,
+        "calmar_ratio": -0.243,
+        "win_rate": "28.57%",
+        "total_trades": 42,
+        "avg_trade_return": "-1.45%",
+        "profit_factor": 0.643
+      }
+    },
+    "Momentum Factor": {
+      "strategy_name": "Momentum Factor",
+      "config": {
+        "codes": [
+          "sh.600036",
+          "sh.600519",
+          "sh.600000"
+        ],
+        "freq": "daily",
+        "start_date": "2021-01-01",
+        "end_date": "2026-05-15",
+        "init_cash": 1000000,
+        "fees": 0.001,
+        "slippage": 0.001,
+        "size_type": "percent",
+        "size": 0.33,
+        "stamp_fees": 0.001
+      },
+      "metrics": {
+        "total_return": "6.17%",
+        "annualized_return": "1.70%",
+        "max_drawdown": "-12.00%",
+        "sharpe_ratio": -106.005,
+        "sortino_ratio": 0.0,
+        "calmar_ratio": 0.142,
+        "win_rate": "20.00%",
+        "total_trades": 15,
+        "avg_trade_return": "2.66%",
+        "profit_factor": 1.648
+      }
+    },
+    "Multi Factor": {
+      "strategy_name": "Multi Factor",
+      "config": {
+        "codes": [
+          "sh.600036",
+          "sh.600519",
+          "sh.600000"
+        ],
+        "freq": "daily",
+        "start_date": "2021-01-01",
+        "end_date": "2026-05-15",
+        "init_cash": 1000000,
+        "fees": 0.001,
+        "slippage": 0.001,
+        "size_type": "percent",
+        "size": 0.33,
+        "stamp_fees": 0.001
+      },
+      "metrics": {
+        "total_return": "-9.94%",
+        "annualized_return": "-2.90%",
+        "max_drawdown": "-12.28%",
+        "sharpe_ratio": -177.916,
+        "sortino_ratio": 0.0,
+        "calmar_ratio": -0.236,
+        "win_rate": "27.27%",
+        "total_trades": 33,
+        "avg_trade_return": "-2.13%",
+        "profit_factor": 0.357
+      }
+    },
+    "ATR Position": {
+      "strategy_name": "ATR Position",
+      "config": {
+        "codes": [
+          "sh.600036",
+          "sh.600519",
+          "sh.600000"
+        ],
+        "freq": "daily",
+        "start_date": "2021-01-01",
+        "end_date": "2026-05-15",
+        "init_cash": 1000000,
+        "fees": 0.001,
+        "slippage": 0.001,
+        "size_type": "percent",
+        "size": 0.33,
+        "stamp_fees": 0.001
+      },
+      "metrics": {
+        "total_return": "0.00%",
+        "annualized_return": "0.00%",
+        "max_drawdown": "0.00%",
+        "sharpe_ratio": -1068836963160350.5,
+        "sortino_ratio": 0.0,
+        "calmar_ratio": NaN,
+        "win_rate": "0.00%",
+        "total_trades": 0,
+        "avg_trade_return": "0.00%",
+        "profit_factor": 0.0
+      }
+    },
+    "Max Drawdown Stop": {
+      "strategy_name": "Max Drawdown Stop",
+      "config": {
+        "codes": [
+          "sh.600036",
+          "sh.600519",
+          "sh.600000"
+        ],
+        "freq": "daily",
+        "start_date": "2021-01-01",
+        "end_date": "2026-05-15",
+        "init_cash": 1000000,
+        "fees": 0.001,
+        "slippage": 0.001,
+        "size_type": "percent",
+        "size": 0.33,
+        "stamp_fees": 0.001
+      },
+      "metrics": {
+        "total_return": "-3.64%",
+        "annualized_return": "-1.04%",
+        "max_drawdown": "-6.73%",
+        "sharpe_ratio": -303.61,
+        "sortino_ratio": 0.0,
+        "calmar_ratio": -0.155,
+        "win_rate": "13.33%",
+        "total_trades": 15,
+        "avg_trade_return": "-2.81%",
+        "profit_factor": 0.104
+      }
+    },
+    "Correlation Diversify": {
+      "strategy_name": "Correlation Diversify",
+      "config": {
+        "codes": [
+          "sh.600036",
+          "sh.600519",
+          "sh.600000"
+        ],
+        "freq": "daily",
+        "start_date": "2021-01-01",
+        "end_date": "2026-05-15",
+        "init_cash": 1000000,
+        "fees": 0.001,
+        "slippage": 0.001,
+        "size_type": "percent",
+        "size": 0.33,
+        "stamp_fees": 0.001
+      },
+      "metrics": {
+        "total_return": "-1.98%",
+        "annualized_return": "-0.56%",
+        "max_drawdown": "-2.20%",
+        "sharpe_ratio": -477.175,
+        "sortino_ratio": 0.0,
+        "calmar_ratio": -0.255,
+        "win_rate": "16.67%",
+        "total_trades": 6,
+        "avg_trade_return": "-1.14%",
+        "profit_factor": 0.11
+      }
+    }
+  },
+  "errors": {
+    "Fund Flow Inflow": "没有成功加载任何数据",
+    "Sector Rotation": "没有成功加载任何数据",
+    "Big Deal Track": "没有成功加载任何数据",
+    "Northbound Follow": "没有成功加载任何数据",
+    "Value Pick": "没有成功加载任何数据",
+    "Earnings Surprise": "没有成功加载任何数据",
+    "Buyback Signal": "没有成功加载任何数据",
+    "Lockup Avoid": "没有成功加载任何数据",
+    "Pair Trading": "没有成功加载任何数据",
+    "ETF Premium": "没有成功加载任何数据",
+    "Market Valuation": "没有成功加载任何数据",
+    "Market Northbound": "没有成功加载任何数据",
+    "Market Margin": "没有成功加载任何数据"
+  }
+}

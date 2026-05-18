@@ -1,0 +1,31 @@
+{
+  "strategy_name": "ETF Premium",
+  "config": {
+    "codes": [
+      "sh.600036",
+      "sh.600519",
+      "sh.600000"
+    ],
+    "freq": "daily",
+    "start_date": "2021-01-01",
+    "end_date": "2026-05-15",
+    "init_cash": 1000000,
+    "fees": 0.001,
+    "slippage": 0.001,
+    "size_type": "percent",
+    "size": 0.33,
+    "stamp_fees": 0.001
+  },
+  "metrics": {
+    "total_return": "-12.48%",
+    "annualized_return": "-3.68%",
+    "max_drawdown": "-17.39%",
+    "sharpe_ratio": -98.528,
+    "sortino_ratio": 0.0,
+    "calmar_ratio": -0.212,
+    "win_rate": "52.94%",
+    "total_trades": 102,
+    "avg_trade_return": "-0.72%",
+    "profit_factor": 0.686
+  }
+}

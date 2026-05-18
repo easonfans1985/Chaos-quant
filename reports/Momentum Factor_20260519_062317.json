@@ -1,0 +1,31 @@
+{
+  "strategy_name": "Momentum Factor",
+  "config": {
+    "codes": [
+      "sh.600036",
+      "sh.600519",
+      "sh.600000"
+    ],
+    "freq": "daily",
+    "start_date": "2021-01-01",
+    "end_date": "2026-05-15",
+    "init_cash": 1000000,
+    "fees": 0.001,
+    "slippage": 0.001,
+    "size_type": "percent",
+    "size": 0.33,
+    "stamp_fees": 0.001
+  },
+  "metrics": {
+    "total_return": "6.17%",
+    "annualized_return": "1.70%",
+    "max_drawdown": "-12.00%",
+    "sharpe_ratio": -106.005,
+    "sortino_ratio": 0.0,
+    "calmar_ratio": 0.142,
+    "win_rate": "20.00%",
+    "total_trades": 15,
+    "avg_trade_return": "2.66%",
+    "profit_factor": 1.648
+  }
+}

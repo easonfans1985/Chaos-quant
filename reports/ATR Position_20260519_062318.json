@@ -1,0 +1,31 @@
+{
+  "strategy_name": "ATR Position",
+  "config": {
+    "codes": [
+      "sh.600036",
+      "sh.600519",
+      "sh.600000"
+    ],
+    "freq": "daily",
+    "start_date": "2021-01-01",
+    "end_date": "2026-05-15",
+    "init_cash": 1000000,
+    "fees": 0.001,
+    "slippage": 0.001,
+    "size_type": "percent",
+    "size": 0.33,
+    "stamp_fees": 0.001
+  },
+  "metrics": {
+    "total_return": "-6.98%",
+    "annualized_return": "-2.02%",
+    "max_drawdown": "-9.41%",
+    "sharpe_ratio": -139.466,
+    "sortino_ratio": 0.0,
+    "calmar_ratio": -0.214,
+    "win_rate": "16.67%",
+    "total_trades": 60,
+    "avg_trade_return": "-1.54%",
+    "profit_factor": 0.467
+  }
+}
