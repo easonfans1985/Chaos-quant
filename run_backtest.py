@@ -19,7 +19,7 @@ sys.path.insert(0, str(project_root))
 
 from backtest.engine import BacktestEngine, BacktestConfig
 from backtest.report import ReportGenerator
-from strategies import SMACrossStrategy, RSIStrategy, BollingerStrategy, MACDDivergenceStrategy, KDJStrategy, ATRBreakoutStrategy, FundFlowInflowStrategy, NorthboundFollowStrategy, SectorRotationStrategy, PairTradingStrategy, MomentumFactorStrategy, MultiFactorStrategy
+from strategies import SMACrossStrategy, RSIStrategy, BollingerStrategy, MACDDivergenceStrategy, KDJStrategy, ATRBreakoutStrategy, FundFlowInflowStrategy, NorthboundFollowStrategy, SectorRotationStrategy, PairTradingStrategy, MomentumFactorStrategy, MultiFactorStrategy, ValuePickStrategy, EarningsSurpriseStrategy, BuybackSignalStrategy, MarketValuationStrategy, NorthboundTimingStrategy, MarginTimingStrategy
 
 
 # 沪深300代表性成分股（用于快速回测）
@@ -49,6 +49,12 @@ STRATEGIES = {
     "pair": PairTradingStrategy,
     "momentum": MomentumFactorStrategy,
     "multifactor": MultiFactorStrategy,
+    "value": ValuePickStrategy,
+    "earnings": EarningsSurpriseStrategy,
+    "buyback": BuybackSignalStrategy,
+    "val_timing": MarketValuationStrategy,
+    "nb_timing": NorthboundTimingStrategy,
+    "margin_timing": MarginTimingStrategy,
 }
 
 
